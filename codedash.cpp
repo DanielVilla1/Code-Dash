@@ -166,6 +166,7 @@ int main() {
             cout << "Thank you!";
             exit(0);
         }
+        else cout << "\nInvalid Input!\n";
 
     } while (Continue(option));
 
@@ -438,6 +439,7 @@ double CalculateStudentGrade(const StudentList& studentList) {
 }
 
 bool Continue(int& option) {
+    int choice;
     cout << "\nDo you want to Continue?"
         << "\n1. Add another Student"
         << "\n2. View Student List"
@@ -452,9 +454,10 @@ bool Continue(int& option) {
         << "\n11. Calculate Total Revenue"
         << "\n0. Exit"
         << "\nInput choice: ";
-    cin >> option;
+    cin >> choice;
 
-    if (option >= 0 && option <= 11) {
+    if (choice > 0 || choice < 11) {
+        option = choice;
         return true;
     }
     return false;
